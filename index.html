@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GAME SHOP - PRO JAILBREAK</title>
+<title>NAPIEL STORE - PRO JAILBREAK</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,13 +13,14 @@
   :root {
     --neon-blue: #00f3ff;
     --neon-purple: #b000ff;
-    --dark-bg: rgba(5, 8, 14, 0.9);
+    --dark-bg: rgba(5, 8, 14, 0.85);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html, body {
     min-height: 100vh;
+    /* ربط الخلفية بالصورة */
     background: #000 url('bg.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
@@ -28,10 +29,10 @@
     direction: rtl; overflow: hidden;
   }
 
-  /* تعتيم الخلفية */
+  /* تعتيم الخلفية عشان الكلام يوضح */
   body::before {
     content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 100%);
+    background: radial-gradient(circle at center, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.9) 100%);
     z-index: 0;
   }
 
@@ -66,11 +67,26 @@
     text-shadow: 0 0 10px rgba(176, 0, 255, 0.5); margin-bottom: 20px; direction: ltr;
   }
 
-  .engineer-badge {
-    display: table; margin: 0 auto 30px; background: var(--neon-purple);
+  .badge-container {
+    display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;
+  }
+
+  .engineer-badge, .phone-badge {
     color: #fff; padding: 5px 30px; font-size: 1.3rem; font-weight: 900;
     clip-path: polygon(15px 0, 100% 0, calc(100% - 15px) 100%, 0 100%);
+    text-align: center;
+  }
+
+  .engineer-badge {
+    background: var(--neon-purple);
     box-shadow: 0 0 20px rgba(176, 0, 255, 0.5);
+  }
+
+  .phone-badge {
+    background: rgba(0, 243, 255, 0.2);
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    direction: ltr; letter-spacing: 2px;
   }
 
   /* شاشة الفحص */
@@ -105,15 +121,16 @@
   
   .c-title { color: var(--neon-blue); font-size: 14px; font-weight: 800; margin-bottom: 5px; display: block; }
   .full .c-title { margin-bottom: 0; margin-left: 15px; font-size: 16px; }
-  .c-val { color: #fff; font-size: 18px; font-weight: 900; direction: ltr; }
-  .full .c-val { font-size: 15px; direction: rtl; line-height: 1.5; flex: 1; }
+  .c-val { color: #fff; font-size: 18px; font-weight: 900; direction: ltr; text-align: center; }
+  .full .c-val { font-size: 16px; direction: rtl; line-height: 1.5; flex: 1; text-align: right; }
 
   .footer-sys { position: fixed; bottom: 10px; right: 20px; font-family: 'Orbitron', sans-serif; font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 2px; z-index: 2; }
 
   @media (max-width: 600px) {
-    .brand-title { font-size: 3rem; } .contact-grid { grid-template-columns: 1fr; }
+    .brand-title { font-size: 2.8rem; } .contact-grid { grid-template-columns: 1fr; }
     .contact-card.full { flex-direction: column; text-align: center; }
     .full .c-title { margin-left: 0; margin-bottom: 5px; } .full .c-val { text-align: center; }
+    .badge-container { flex-direction: column; gap: 10px; }
   }
 </style>
 </head>
@@ -121,9 +138,13 @@
 
 <div class="hud-container">
   
-  <h1 class="brand-title">GAME SHOP</h1>
+  <h1 class="brand-title">NAPIEL STORE</h1>
   <div class="brand-sub">PS4 Jailbreak 11.00 - 12.00 - 13.00</div>
-  <div class="engineer-badge">مهندس : محمود فتحى</div>
+  
+  <div class="badge-container">
+    <div class="engineer-badge">أحمد نبيل - لجميع خدمات البلايستيشن</div>
+    <div class="phone-badge">01100896460</div>
+  </div>
 
   <div class="status-panel">
     <div id="state">جارٍ فحص النظام...</div>
@@ -134,21 +155,13 @@
   <div class="contact-grid">
     <div class="contact-card full">
       <span class="c-title">📍 العنوان:</span>
-      <span class="c-val">المنصورة حى الجامعة شارع الإيمان، أول شارع بجوار الجامعة بلازا، مطعم هوت ميكس (موجودين فى نص الشارع).</span>
-    </div>
-    <div class="contact-card">
-      <span class="c-title">📱 الموبايل</span>
-      <span class="c-val">01024388999<br>01024244499</span>
-    </div>
-    <div class="contact-card">
-      <span class="c-title">☎️ الأرضي</span>
-      <span class="c-val" style="line-height: 2.5;">0502370475</span>
+      <span class="c-val">شارع صيدلية عسل</span>
     </div>
   </div>
 
 </div>
 
-<div class="footer-sys">GAME SHOP OS v2.0</div>
+<div class="footer-sys">NAPIEL STORE OS v1.0</div>
 
 <script>
 (function () {
